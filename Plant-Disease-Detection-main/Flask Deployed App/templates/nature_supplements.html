@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Plant Disease Detection
+{% endblock pagetitle %}
+{% block body %}
+<style>
+  body{
+    overflow-x: hidden;
+  }
+  @media only screen and (max-width: 830px) {
+    .laptop{
+      display: none;
+    }
+  }
+  @media (min-width:830px) and (max-width: 1536px){
+    .mobile{
+      display: none;
+    }
+  }
+</style>
+
+<div class="row mb-5 text-center text-white laptop">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);"><b>🍁Nature Supplements🍁 </b></h1>
+<!--        <p class="lead" style="font-weight: 500;color: black;">This AI Engine Will Help To Detect Disease From Following Fruites And Veggies</p>-->
+    </div>
+</div>
+
+<div class="row p-5 laptop">
+<div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 90%;height: 58%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="{{ans['img_link']}}" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">{{ans['nature_name']}}</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">{{title}}</p>
+            <a target="_blank" href="{{ans['buying_link']}}"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+</div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 100%;height: 100%;">
+            <iframe width="1300" height="800"
+                src="{{ans['video_link'].replace('watch?v=','embed/')}}">
+            </iframe>
+        </div>
+    </div>
+
+
+    </div>
+
+
+
+<!--
+<div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/41eww7SGxWL._SX300_SY300_QL70_FMwebp_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Sujala Foliar Fertilizer</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Apple : Scab</p>
+            <a target="_blank" href="https://www.amazon.in/Sujala-Foliar-Fertilizer-Plants-1kg/dp/B07MYYF2X5"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://essentialbiosciences.com/assets/images/products/bacillus_powder.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">EBS Bacillus Subtilis Bio Fungicide Powder</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Apple : Black Rot</p>
+            <a target="_blank" href="https://agribegri.com/products/buy-ebs-bacillus-subtilis-bio-fungicide-online-1.php?utm_source=google&utm_medium=pmax&utm_campaign=PMax:+Smart+All+3000&utm_term=&utm_campaign=PMax:+Smart+All+3000&utm_source=adwords&utm_medium=ppc&hsa_acc=7428009962&hsa_cam=17668524651&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJSdwV9l0yAxPAFoBKwe-CbuBkno_wqcth8ILCd3Or9aW0RF6Je7ymxoCfCgQAvD_BwE"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://www.bulksupplements.com/cdn/shop/files/Horsetail-Extract-Powder-AMZ-500g.jpg?v=1694024116&width=800" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Horsetail Extract Powder</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Apple : Cedar Rust</p>
+            <a target="_blank" href="https://www.bulksupplements.com/en-IN/products/horsetail-extract-powder?variant=32133412946031&utm_source=google&utm_medium=organic&utm_campaign=India%20Multifeeds&utm_content=Horsetail%20Extract%20Powder&currency=INR&utm_campaign=20955427136&utm_source=g&utm_medium=cpc&utm_content=&utm_term=&ad_id=688165389117&wickedsource=google&wickedid=CjwKCAjw5v2wBhBrEiwAXDDoJaxUtt1KoD9qWj3kyg8640bgpNYqfo3RqfqSTSs5jL20ZxoG62p9IxoC8e8QAvD_BwE&wickedid=688165389117&wcid=20955427136&wv=4&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJaxUtt1KoD9qWj3kyg8640bgpNYqfo3RqfqSTSs5jL20ZxoG62p9IxoC8e8QAvD_BwE"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/399391745/ER/KG/ZB/104938620/equisetum-arvense-extract-powder-250x250.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Equisetum Arvense Extract Powder</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Cherry : Powdery_mildew</p>
+            <a target="_blank" href="https://www.indiamart.com/proddetail/equisetum-arvense-extract-powder-2849511336862.html"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+</div>
+<div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://cdn.moglix.com/p/eg9zLUnQd4a6X-xxlarge.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Equisetum Arvense Extract Powder</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Corn : Cercospora_leaf_spot Gray_leaf_spot</p>
+            <a target="_blank" href="https://www.bighaat.com/products/katyayani-trichoderma-harzianum-bio-fungicide-powder?variant=40612781129751&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=Google&utm_medium=CPC&utm_campaign=18815455412&utm_adgroup=&utm_term=&creative=&device=c&devicemodel=&matchtype=&feeditemid=&targetid=&network=x&placement=&adposition=&GA_loc_interest_ms=&GA_loc_physical_ms=9148884&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJXVmYnLuRxdQa0sS3OU9vWaf1d47ODWih78HE0ljUuzdruZXW4QbWhoCvI0QAvD_BwE"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+     <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://plantlane.com/cdn/shop/products/IMG-20191226-WA0007-1.jpg?v=1682037615" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Amibion Flower Booster</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Corn : Common Rust</p>
+            <a target="_blank" href="https://plantlane.com/cdn/shop/products/IMG-20191226-WA0007-1.jpg?v=1682037615"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/11feZM+uD-L.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Shri Herbal Horsetail (Equisetum arvense)</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Corn : Northern Leaf Blight</p>
+            <a target="_blank" href="https://www.amazon.in/Shri-Horsetail-Equisetum-arvense-Powder-100/dp/B09BJQM5N8"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://marketplace.agribazaar.com/s/6204bf2ecd8cdec2b3b45115/64c187ab77b05c51234a69a6/realpercent20sonapercent20boxpercent20_percent20bottle-480x480.png" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Real Sona</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Jatropha : Black_rot</p>
+            <a target="_blank" href="https://agribegri.com/products/buy-real-sona-bio-stimulant-online--buy-plant-promoter-online.php"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+</div>
+<div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/61myl2ok8ZL._SX385_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Vine Vitality</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Jatropha : Esca(Black_Measles)</p>
+            <a target="_blank" href="https://www.amazon.com/Vine-Vitality-Nutrient-Fertilizer-Concentrate/dp/B00VVVSI06"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/51au6MOHKoL._SX679_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Foliage Fortify</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Jatropha : Leaf Blight</p>
+            <a target="_blank" href="https://www.amazon.in/Naturally-Green-Purpose-Foliage-Fertilizer/dp/B096N4HY78?th=1"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://badikheti-production.s3.ap-south-1.amazonaws.com/products/202301171524051912935582.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Bloom - Growth booster, Flowering Stimulant, healthier plants, shoot growth, stem strength,increases food production capacity</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Peach : Bacterial Spot</p>
+            <a target="_blank" href="https://agribegri.com/products/buy-flowering-stimulant-online--flower-blooming-chemical.php?utm_source=google&utm_medium=pmax&utm_campaign=PMax:+Smart+All+3000&utm_term=&utm_campaign=PMax:+Smart+All+3000&utm_source=adwords&utm_medium=ppc&hsa_acc=7428009962&hsa_cam=17668524651&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJcBGeLnMP2_F9V43vOYf0kQCRyHv_vlp4RhAo4xqRAdh5G9wp4LDbRoCTxwQAvD_BwE"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/61oGyzpqVpS._SX679_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Grenera Turmeric Capsules (Haldi with Black Pepper)</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Pepper Bell : Bacterial_spot</p>
+            <a target="_blank" href="https://www.amazon.in/Grenera-Turmeric-Capsules-Curcumin-Supplement/dp/B097MHPHBL"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+</div>
+
+
+<div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+        <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://casadeamor.in/cdn/shop/files/Diatomaceousearthpowder900gm.jpg?v=1697023632&width=600" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Casa De Amor Diatomaceous Earth | Eco Magic | Organic Eco Friendly Safe Pest Control</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Potato : Early Blight</p>
+            <a target="_blank" href="https://casadeamor.in/products/eco-magic-dust-diatomaceous-earth-effective-organic-eco-friendly#:~:text=It%20contains%20trace%20minerals%20including,also%20a%20good%20soil%20conditioner."><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://www.vedaoils.com/cdn/shop/products/GARLIC.jpg?v=1656656962" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Garlic Liquid Extract</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Potato : Late Blight</p>
+            <a target="_blank" href="https://www.vedaoils.com/products/garlic-liquid-extract?variant=37540251500712&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJVijUXNx9qwPw6mUfQfrwihEEsUV5f2O0gehmzA4-ff5Xb8-S3vCIRoCl0sQAvD_BwE"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/51jXcenN2rL.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">GUARD Certified Organic Bio Fungus managment for Seeds and Young Plants Trichoderma viride</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Squash : Powdery mildew</p>
+            <a target="_blank" href="https://www.amazon.in/Guard-Certified-Organic-Management-Trichoderma/dp/B0744KJHVZ"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+     <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/51s71JZVpAL._AC_SX679_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Bloom Nutrition Greens and Superfoods Powder</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Strawberry : Leaf Scorch</p>
+            <a target="_blank" href="https://www.amazon.com/Bloom-Nutrition-SuperGreens-Powder-Smoothie-Juice-Mix/dp/B098SFLC6Z/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.nNEeL2Tbm-x4zkWSx_Hqn0fGqQJAmQvw2-4pk3uECUx-ZMUfkO7a2ci71VdDj_1LKcCp7q7jfkZ8IAgxS26sVtKpN9Z-tkxlMYh4NSjkNh6wLWcxdtOfzuzMbz4NU9DI-gap2SGTZhrw6cMD4wzKGcOcu4CkbNs8YXXUglia6OWLKS-4t1-DhMYB-eqSlmBYbLZdoKfpoUpO42h5nnLa8IvKLUSCVJT4pZNzuWu4ZZEXULwwzG38fVLm35-8aq3RwppU7nRPFoGlHFNWUWy5v0ooPmjMbA6BKta4jxtJTVc.UFtUP_ug1KtAiihxBdVSLzDsXo5NBgP5YF_iBnvcZ8Q&dib_tag=se&keywords=berry+bloom&qid=1713415859&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+</div>
+
+<center class="laptop">
+<div class="row p-5">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/51oM2Ho7erL._SY445_SX342_QL70_FMwebp_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">THE WET TREE Pseudomonas Fluorescens Powder</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Bacterial_spot</p>
+            <a target="_blank" href="https://www.amazon.in/WET-TREE-Pseudomonas-Fluorescens-Fungicide/dp/B0CGPL1B9S"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://i0.wp.com/geturpet.com/wp-content/uploads/2021/02/Phyto-Carb-Co2-Supplement-Algae-minus-100ml.jpg?resize=600%2C600&ssl=1" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Phyto Carb</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Early Blight</p>
+            <a target="_blank" href="https://greenmossaquarium.com/product/25235591/Phyto-Carb--Plant-Fertilizer---100-mL"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+     <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/51leOzLR7tL._SX300_SY300_QL70_FMwebp_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Going Greens Tomato Plant Fertilizer</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Late Blight</p>
+            <a target="_blank" href="https://www.amazon.in/Going-Greens-Tomato-Fertilizer-200/dp/B0BGSRFJBN?th=1"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://rukminim1.flixcart.com/image/400/400/kplisnk0/soil-manure/w/c/b/vermicompost-nature-nourish-original-imag3sg47ug8pyt2.jpeg?q=70" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Nature Nourish Vermicompost Fertilizer</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Leaf Mold</p>
+            <a target="_blank" href="https://www.flipkart.com/nature-nourish-vermicompost-fertilizer/p/itm71fdc8ccb72f1"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+</div>
+    <div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://hydroponic.co.za/wp-content/uploads/2021/01/Bioleaf-MCG-Specialized-Growing-Medium.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Bioleaf MCG Specialized Growing Medium 60L</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Septoria_leaf_spot</p>
+            <a target="_blank" href="https://hydroponic.co.za/hydroponics/bioleaf-mcg-specialized-growing-medium-60l/"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/61prHRpf2JL._SY500_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Alagaezyme Plant Micro Nutrient Elixir</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Spider_mites Two-spotted_spider_mite</p>
+            <a target="_blank" href="https://www.amazon.in/Alagaezyme-Plant-Micro-Nutrient-Elixir/dp/B0CTSM1417"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://agriculturereview.com/wp-content/uploads/2024/04/tomato-plant-fertilizer-agriculture-review.webp" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Tomato Plant Fertilizer For Overall Growth of Tomato</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Target_Spot</p>
+            <a target="_blank" href="https://agriculturereview.com/product/tomato-plant-fertilizer-for-overall-growth-of-tomato?srsltid=AfmBOoo6ARBuHRIGkXSWK4snTgkuiRTQdPdpexqhKGQdbRbqAUjIpPQcEMg"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 95%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://5.imimg.com/data5/KK/RT/MY-33257937/nutra-plant-protector-100-ml-500x500.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Green Leaf Nutra Plant Protector</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Mosaic_virus</p>
+            <a target="_blank" href="https://www.indiamart.com/proddetail/nutra-plant-protector-100-ml-16480166955.html"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+    </div>
+    <div class="row p-5 laptop">
+    <div class=" col">
+        <div class="p-3 bg-white shadow rounded-lg" style="width: 23%;height: 99%;">
+            <center><h5>Fertilizer<b style="color: green;"> (Healthy):</b></h5></center>
+          <img src="https://m.media-amazon.com/images/I/61Uj-Wd00hL._SX522_.jpg" width="370" height="250">
+            <center><p class="lead" style="font-weight: 500;color: black;">Pure & Organic Super Vermicompost</p></center>
+          <center><p class="lead" style="font-weight: 500;color: black;">Tomato : Yellow_Leaf_Curl_Virus</p>
+            <a target="_blank" href="https://www.amazon.in/Organic-Super-Vermicompost-Types-Plants/dp/B0BTZ3JBT9?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2MY2Y26SW41DQ"><button type="button" class="btn btn-success"
+                style="background-color: #05380b;">Buy Product</button></a></center>
+        </div>
+    </div>
+</div>
+</center>
+-->
+{% endblock body %}
